@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 阿飞の博客
 subtitle: ''
-description: ''
+description: '这是一个很不错的个人博客'
 keywords:
-author: John Doe
-language: en
+author: afei
+language: ch
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://afei.mhzar.space
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
