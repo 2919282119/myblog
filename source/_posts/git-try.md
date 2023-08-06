@@ -74,3 +74,35 @@ git pull #从远程仓库拉取最新代码，并自动合并
 - 要想成功提交，要先git fetch从远程仓库拉取代码，但不会自动合并，要手动进行合并
 - 比如：将本地的master分支和origin/master进行合并，在master分支下：git merge origin/master,然后解决冲突即可
 
+
+
+#### 节点回退
+
+- 先通过git log查看所有节点，然后通过上下键找到想要换的节点
+- 通过git switch commitid(输入前几位即可)，但需要在后面加 - -detach
+- 注意：这样操作会出现“分离头指针”的问题
+
+<img src="../AppData/Roaming/Typora/typora-user-images/image-20230806111150677.png" alt="分离头指针" style="zoom:60%;" />
+
+- HEAD指针指到哪里就显示哪里的代码，按理说HEAD应该指到某个分支上，如图所示就是节点回退产生分离头指针的问题，这种状态下也能修改代码，但这种修改不会出现在任何分支上（所以没什么意义）
+- 要想解决，可以选择在C2上先创建一个新分支，然后在这个分支上进行操作
+
+
+
+#### Tag
+
+- 为了便于快速找到之前某个稳定版本的节点，可以给某个节点打上一个标签
+
+```bash
+git tag v1.0(名字可以自己随便设) #这表示给当前节点打上v1.0标签
+git tag v1.2 <commitid> #这表示给某个节点打上标签
+git switch <tagname> #加了标签后就可以这样切换了
+git push origin v1.0 #将这个标签推送到远程仓库
+git push origin --tags #将所有标签推送到远程仓库
+git tag -d <tagname> #删除标签
+git push --delete <tagname> #删除远程仓库标签
+```
+
+
+
+- 命令行输入code .回车可以快速打开vscode
