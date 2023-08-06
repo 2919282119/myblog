@@ -64,9 +64,10 @@ Head表示当前的
 git remote #列出当前关联的远程库
 git remote add 库名(一般叫origin) url(xxx.git) #关联远程库
 git remote remove origin #取消关联远程库
-git push -u(表示推送之后直接关联) origin <branchname>
+git push -u(表示推送之后直接关联) origin xxx(:yyy)
+#这句表示将本地的xxx分支推送给远程的xxx分支,如果加:yyy，表示将本地的xxx分支推送给远程的yyy分支
 #(branchname一般是master,表示将本地的master推送给远程的master,关联之后就直接git push即可)
-git fetch #从远程仓库拉取最新代码
+git fetch #从远程仓库拉取最新代码,要手动合并 git merge origin/master
 git pull #从远程仓库拉取最新代码，并自动合并
 ```
 
@@ -85,7 +86,7 @@ git pull #从远程仓库拉取最新代码，并自动合并
 <img src="./../img/分离头指针.png" alt="分离头指针" style="zoom:60%;" />
 
 - HEAD指针指到哪里就显示哪里的代码，按理说HEAD应该指到某个分支上，如图所示就是节点回退产生分离头指针的问题，这种状态下也能修改代码，但这种修改不会出现在任何分支上（所以没什么意义）
-- 要想解决，可以选择在C2上先创建一个新分支，然后在这个分支上进行操作
+- 要想解决，可以选择在C2上先创建一个新分支，然后在这个分支上进行操作git switch -c xxx
 
 
 
@@ -106,3 +107,21 @@ git push --delete <tagname> #删除远程仓库标签
 
 
 - 命令行输入code .回车可以快速打开vscode
+
+  
+
+#### bug解决方案
+
+当我把本地的代码改完之后（在test分支），如果我想直接把远程的master分支变成这个，两种办法:
+
+1. 先把test分支和master分支进行merge（准确来说是把master分支和test进行merge，因为合并之后是前面的），merge之后再git pull从远程仓库拉取代码，然后修改矛盾代码之后再次commit，然后再push
+2. 切到xxx分支（或标签），删除本地和远程的master分支，然后新建本地master分支，将xxx分支merge到master分支，然后再推到远程仓库(==这种一般是对于不需要保留master的==)
+
+
+
+- 据说vscode是会先拉取后提交的
+
+<img src="./../img/远程仓库较新.png" alt="远程仓库版本较新时出现的问题" style="zoom:90%;" />
+
+有时报这种错就是因为远程库的代码要比本地库的要新，这种情况要先git pull的(==先拉再推==)
+
