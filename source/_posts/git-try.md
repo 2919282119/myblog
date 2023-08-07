@@ -84,7 +84,7 @@ git pull #从远程仓库拉取最新代码，并自动合并
 - 通过git switch commitid(输入前几位即可)，但需要在后面加 - -detach
 - 注意：这样操作会出现“分离头指针”的问题
 
-<img src="./../img//分离头指针.png" alt="分离头指针" style="zoom:60%;" />
+<!-- <img src="git-try/头指针分离.png" alt="分离头指针"/> -->
 
 - HEAD指针指到哪里就显示哪里的代码，按理说HEAD应该指到某个分支上，如图所示就是节点回退产生分离头指针的问题，这种状态下也能修改代码，但这种修改不会出现在任何分支上（所以没什么意义）
 - 要想解决，可以选择在C2上先创建一个新分支，然后在这个分支上进行操作git switch -c xxx
@@ -122,7 +122,52 @@ git push --delete <tagname> #删除远程仓库标签
 
 - 据说vscode是会先拉取后提交的
 
-<img src="./../img/远程仓库较新.png" alt="远程仓库版本较新时出现的问题" style="zoom:90%;" />
+<!-- <img src="https://postimg.cc/LY5665Rf" alt="远程仓库较新" style="zoom:90%;" /> -->
 
 有时报这种错就是因为远程库的代码要比本地库的要新，这种情况要先git pull的(==先拉再推==)
 
+
+
+
+
+#### 子模块问题
+
+- hexo安装新的主题（如butterfly）使用以下命令：
+
+```bash
+git clone -b master https://github.com/2919282119/hexo-theme-butterfly.git themes/butterfly #这个命令表示将该主题安装在themes/butterfly目录下
+```
+
+- 这里是将别人的仓库先fork到自己的Github仓库，所以上面是用的自己仓库的链接，如果不fork而是直接用别人的仓库，子模块会没有修改权限
+- 然后将_config.yml中的theme改为butterfly(和目录名字一样)
+- 然后回到项目根目录添加子模块，使用以下命令：
+
+```bash
+git submodule add xxx(上面的仓库链接)
+git commit -m "添加了子模块"
+git push
+```
+
+- #这样就会在根目录下生成一个.gitmodules文件，内容如下：
+
+```bash
+[submodule "sub/b-project"]
+	path = sub/b-project
+	url = https://github.com/2919282119/hexo-theme-butterfly.git
+```
+
+- 想要更新子模块的内容，修改完之后，在子模块（如butterfly）路径下执行以下命令:
+
+```bash
+git add *
+git commit -m "提交子模块修改"
+git push
+```
+
+- 然后在主模块提交子模块更新
+
+```bash
+git add *
+git commit -m "提交子模块更新"
+git push #这样子模块就更新完毕了
+```
