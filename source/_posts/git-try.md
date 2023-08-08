@@ -1,8 +1,7 @@
 ---
 title: git应用
-tags: 
-  - page2
 cover: https://images.pexels.com/photos/11035539/pexels-photo-11035539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+tags: [前端]
 ---
 
 + 查看文件状态
