@@ -1,6 +1,8 @@
 ---
 title: git应用
-tags: ["music","sport","movies"]
+tags: 
+  - page2
+cover: https://images.pexels.com/photos/11035539/pexels-photo-11035539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 ---
 
 + 查看文件状态
@@ -104,7 +106,6 @@ git push origin --tags #将所有标签推送到远程仓库
 git tag -d <tagname> #删除标签
 git push --delete <tagname> #删除远程仓库标签
 ```
-
 
 
 - 命令行输入code .回车可以快速打开vscode
