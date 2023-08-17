@@ -1,6 +1,6 @@
 ---
 title: cmd常见指令
-cover: https://afly-0321.oss-cn-hangzhou.aliyuncs.com/img/cmd.png?Expires=1692274540&OSSAccessKeyId=TMP.3KgQyc4Fvo2ge34wd2gseCB6mXyBRG87bKMwdWY4jgGPuNxKeJvf6QmLaSSUzGwj7iGuy9negxsfE2Yx14NUs89JDeJrTq&Signature=0ZujC%2Ffzl7l%2FmvyzYqyTwt7Lb6Q%3D
+cover: https://afly-0321.oss-cn-hangzhou.aliyuncs.com/img/cmd.png
 tag: 操作系统
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: R语言基础
-cover: https://afly-0321.oss-cn-hangzhou.aliyuncs.com/img/Rstudio?Expires=1692242197&OSSAccessKeyId=TMP.3KgQyc4Fvo2ge34wd2gseCB6mXyBRG87bKMwdWY4jgGPuNxKeJvf6QmLaSSUzGwj7iGuy9negxsfE2Yx14NUs89JDeJrTq&Signature=2oEq0LTzmFx1vdlbE6U2MVlvxCo%3D
+cover: https://afly-0321.oss-cn-hangzhou.aliyuncs.com/img/Rstudio
 tag: 数据统计
 ---
 
