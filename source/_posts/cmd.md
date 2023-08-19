@@ -1,6 +1,6 @@
 ---
 title: cmd常见指令
-cover: https://afly-0321.oss-cn-hangzhou.aliyuncs.com/img/cmd.png
+cover: https://afly0321.oss-cn-hangzhou.aliyuncs.com/cmd
 tag: 操作系统
 
 ---

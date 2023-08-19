@@ -29,3 +29,5 @@ tag: links
 24. [果汁实验室](http://guozhivip.com/lab/)
 25. [图片转文字](https://web.baimiaoapp.com/)
 26. [DIY表情包](https://www.dbbqb.com/)
+27. [宝塔(部署)](https://www.bt.cn/login.html?ReturnUrl=https://www.bt.cn/admin/servers)
+28. [框框大学](https://www.kkdaxue.com/)

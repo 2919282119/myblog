@@ -1,6 +1,6 @@
 ---
 title: R语言基础
-cover: https://afly-0321.oss-cn-hangzhou.aliyuncs.com/img/Rstudio
+cover: https://afly0321.oss-cn-hangzhou.aliyuncs.com/Rstudio
 tag: 数据统计
 ---
 
