@@ -1,6 +1,6 @@
 ---
 title: 浙理工新生须知
-cover: https://i0.hdslb.com/bfs/article/65a5e63ca4f676e1b2e5707b053272e39241eccd.jpg
+cover: https://afly0321.oss-cn-hangzhou.aliyuncs.com/img/image-20230909195839955.png
 tags: ZSTU
 
 ---
