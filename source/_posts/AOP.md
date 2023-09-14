@@ -1,6 +1,6 @@
 ---
 title: AOP入门
-cover: 
+cover: https://cdn0.iconfinder.com/data/icons/education-364/24/school-programming-laptop-learning-coding-education-512.png
 tags: spring
 
 ---

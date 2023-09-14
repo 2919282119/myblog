@@ -1,6 +1,6 @@
 ---
 title: EL&JSTL
-cover: 
+cover: https://cdn0.iconfinder.com/data/icons/education-364/24/school-programming-laptop-learning-coding-education-512.png
 tag: javaweb
 
 ---
