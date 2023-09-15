@@ -8,7 +8,7 @@ tags: 前端
 #### 安装项目脚手架
 
 ```bash
-npm i vue@latest
+npm create vue@latest
 #然后会出现以下可选项，如果不确定就no
 #✔ Project name: … <your-project-name>
 #✔ Add TypeScript? … No / Yes
