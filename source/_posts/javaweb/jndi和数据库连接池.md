@@ -1,6 +1,6 @@
 ---
 title: JNDI和数据库连接池
-cover: https://cdn0.iconfinder.com/data/icons/education-364/24/school-programming-laptop-learning-coding-education-512.png
+cover: https://cdn0.iconfinder.com/data/icons/badges-26/54/markdown-format-mark-down-arrow-sign-badge-1024.png
 tags: javaweb
 
 ---
