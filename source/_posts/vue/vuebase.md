@@ -1,7 +1,7 @@
 ---
 title: vue基础
 cover: https://images.pexels.com/photos/11035366/pexels-photo-11035366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-tags: [vue]
+tags: [Vue]
 ---
 ## vue安装
 

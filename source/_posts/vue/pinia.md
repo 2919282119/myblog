@@ -1,7 +1,7 @@
 ---
 title: pinia状态管理
 cover: https://img2.baidu.com/it/u=1158466549,33886806&fm=253&fmt=auto&app=138&f=PNG?w=1000&h=500
-tags: [vue]
+tags: [Vue]
 ---
 ## 状态管理
 **为什么需要状态管理？**
