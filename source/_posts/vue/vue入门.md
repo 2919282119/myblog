@@ -1,6 +1,6 @@
 ---
 title: 写vue遇到的问题
-cover: https://cdn0.iconfinder.com/data/icons/badges-26/54/markdown-format-mark-down-arrow-sign-badge-1024.png
+cover: 
 tags: [Vue]
 ---
 
