@@ -6,7 +6,15 @@ tags: [javaweb,期末复习]
 
 
 
-## 琐碎知识
+## 名词解释
+- www：world wide web
+- 硬编码：硬编码是一种将具体数值、字符串或其他常量直接嵌入到程序代码中的做法，而不是使用变量或配置文件等外部方式进行存储
+
+- web容器
+  - 运行Servlet/Jsp的http服务器
+  - 比如：普通java文件编译后生成.class字节码文件要运行在JVM上
+  - tomcat既是一个web服务器，也是一个servlet容器
+- url组成部分(contextpath+servletpath+pathInfo)
 
 - CGI:`common gateway interface`公共网关接口（把html字符串嵌入各种语言）
   - 1994:PHP
@@ -490,6 +498,15 @@ public class Aservlet extends HttpServlet{
   - GenericServlet抽象类实现了Servlet接口
     - HttpServlet抽象类继承了GenericServlet类
 
+- Servlet接口定义了5个方法
+  - init()
+  - service()
+  - destroy()
+  - getServiceConfig()
+  - getServletInfo()
+- GenericServlet这个抽象类中对除了service方法之外的4个方法进行了简单实现
+- HttpServlet是专门处理HTTP请求的，其他的网络请求不用管
+- service()方法会调用子类重写的doGet()或doPost(),所以我们只需要重写doGet和doPost，不要重写service()
 
 
 ## 过滤器
@@ -684,3 +701,214 @@ AOP 的主要目标是解耦关注点，使代码更易于维护和理解。通�
 - 首先确保`pom.xml`里面添加了servlet依赖
 
 - 去项目结构里面勾选`Resource Roots`(`Facets`或者`Modules`)
+
+
+### Restful风格
+
+- RESTful (Representational State Transfer) 是一种设计和构建网络应用程序的架构风格。它通常用于创建 Web 服务，使系统之间的通信更加简单和可伸缩。以下是关于RESTful的一些基本概念：
+
+**资源 (Resource)**: 在RESTful架构中，一切都被视为资源。资源可以是任何可以通过网络访问的实体，比如数据对象、服务、或者整个应用程序。
+
+**表现层 (Representation)**: 资源的表现层是指资源在特定时间点的状态以及与其他资源之间的关系。常见的表现层格式包括JSON和XML。
+
+**状态转移 (State Transfer)**: 客户端通过与资源的表现层交互，实现状态的转移。这通常是通过HTTP方法（GET、POST、PUT、DELETE等）来实现的。
+
+**统一接口 (Uniform Interface)**: RESTful接口应该是统一和简单的，以提高系统的可见性、简化客户端的实现，同时降低了服务器的性能开销。
+
+**无状态性 (Statelessness)**: 每个请求都应该包含服务器处理该请求所需的所有信息。服务器不应该保存关于客户端状态的信息。
+
+- 以一个简单的图书管理系统为例来说明RESTful的概念。
+
+假设我们有一个图书馆的Web服务，我们想要管理图书的信息。在RESTful设计中，我们可以将图书视为资源，每本书都有一个唯一的标识符（URI）。
+
+**获取特定图书信息（GET请求）:**
+
+请求：GET /books/{bookId}
+
+响应：返回特定图书的详细信息
+
+**添加新图书（POST请求）:**
+
+请求：POST /books
+
+数据：包含新书信息的JSON或XML
+
+响应：返回新书的URI以及状态码
+
+**更新图书信息（PUT请求）:**
+
+请求：PUT /books/{bookId}
+
+数据：包含更新后的书籍信息的JSON或XML
+
+响应：返回更新后的图书信息
+
+**删除图书（DELETE请求）:**
+
+请求：DELETE /books/{bookId}
+
+响应：返回删除的图书信息或者一个成功的状态码
+
+
+---
+## cgx整理的
+
+一、填空选择简答
+1.Servlet的继承树？为什么需要定义那么多接口（利用什么原则）？
+Servlet<<interface>> ——>  GenericServlet ——> HttpServlet ——> MyServlet
+Servlet<<interface>>中包含了ServletRequest<<interface>>、ServletResponse<<interface>>
+HttpServlet<<interface>>包含HttpServletRequest<<interface>>与		HttpServletResponse<<interface>>
+
+2.HttpServlet在哪个包里面？GenericServlet在哪个包里面？
+Javax.servlet.http
+Javax.servlet
+3.Servlet的生命周期？
+（init service（doGet、doPost） destroy）更详细一点就是包括加载程序、初始化（init）、服务(service)、销毁(destroy)、卸载5个部分。
+4.servlet定义的两种方式（注解和web.xml定义）
+(1)@WebServlet(name=””,urlPattern=””)
+(2)在web.xml里面
+<servlet>
+<servlet-name>w</servlet-name>
+<servlet-class>A.B.Servlet1</servlet-class>
+<load-on-startup>1</load-on-startup>  大于0即可加载后立即初始化
+</servlet>
+<servlet-mapping>
+<servlet-name>w</servlet-name>
+<url-pattern>/xxx</url-pattern>
+</servlet-mapping>
+5.web-INF里面的资源可以被读取吗？
+如果用URI直接访问的话不行，但是可以利用流getResourceAsStream去读取）
+
+6.init方法，只在第一个用户的第一次访问某个Servlet时执行该方法，它也有一个重载方法的参数是ServletConfig，如何在init阶段获得servlet设置的初始参数呢？
+@WebServlet(“/h”,@WebInitParam(name=”par1”,value=”hello”))
+~
+~
+ @Override
+    public void init() throws ServletException {
+        String par1 = getInitParameter("par1");  
+ //或者      String par1 = getServletConfig().getInitParameter("par1"); 
+}
+（还有一种在web.xml中的
+<servlet>
+<servlet-name>w</servlet-name>
+<servlet-class>A.B.Servlet1</servlet-class>
+<init-param>
+<param-name></param-name>
+<param-value></param-value>
+</init-param>
+</servlet>
+）
+7.service方法是用户的每一次访问都会执行，并且会调用doXXX方法。（是否要重写此方法呢？）
+不建议重写service方法，有可能会打乱HttpServlet的调用流程
+8.destroy方法什么时候调用呢？
+Servlet销毁的时候（一般是浏览器关闭或者是web容器关闭）
+9.如何在doGet/doPost方法中将请求的参数一次全部取出呢？
+利用工具类
+Map<String,Object> map = new HashMap<String,Object>();
+Enumeration<String> names = request.getParameterNames();
+while(names.hasMoreElements()){
+            String name = names.nextElement();
+            map.put(name,request.getParameter(name));
+        }
+10.servlet定义了几种doXXX方法？多样的请求处理方法适用于什么风格的编程？
+(1)七种（doGet doPost doPut doPatch doDelete doOptions doTrace）
+(2)Restful
+11.一个请求包含哪些部分？
+请求行（GET /index.html HTTP/1.1）
+请求头（key value 形式）
+请求体 包括请求数据和空行
+12一个响应包含哪些部分？
+状态行
+消息报头
+响应正文
+13状态行的响应码
+1xx	指示信息–表示请求已接收，继续处理
+2xx	成功–表示请求已被成功接收、理解、接受
+3xx	重定向–要完成请求必须进行更进一步的操作。
+4xx	客户端错误–请求有语法错误或请求无法实现。
+5xx	服务器端错误–服务器未能实现合法的请求。
+200 成功
+301 永久更换资源链接 302临时更换资源链接 304重定向
+400 客户端出错 403被禁止 404 Not Found
+500 服务器端出错
+
+14.Servlet如何保证在接收请求或者响应时可以使中文正确显示？
+（1）在每个Servlet中定义请求和响应的编码
+（2）直接定义过滤器
+15.request调派请求常用方法
+(1) request.getRequestDispatcher(“想转的servlet路径”).include(requse,response)
+(2) request.getRequestDispatcher(“想转的servlet路径”).forward(requse,response)
+Include将转的servlet内容代码包含进来，原有的servlet代码不去掉
+Forward将原有的servlet代码去掉，转的servlet内容代码替换进来
+16.请求可以进行多次转发（forward）吗？
+可以，并且浏览器标签栏中的路径认为第一次请求的路径
+17.多次重定向后的浏览器标签栏中的路径还是第一次的吗？
+不是，是最后一次的请求的路径
+18.什么是Cookie？
+Cookie是一种文本信息，Web服务器将它发送给浏览器，而用户再次访问同一个服务器时，这些文本信息将被浏览器原封不动地返回给服务器。
+19. 读取Cookie操作
+Cookie cookies = request.getCookies();
+If(cookies!=null){
+For(String cookie:cookies){
+String name = cookie.getName();
+String value = cookie.getValue();
+}
+}
+20. 增加Cookie操作
+Cookie newcookie = new Cookie(“name”,”value”);
+Response.addCookie(newcookie);
+21.如何修改Cookie
+直接在新增时利用同名Cookie即可
+22.如何删除Cookie
+直接将这个cookie.setMaxAge(0)
+23.ServletContext对象用哪个方法获得
+用ServletConfig的getServletContext()方法
+24.HttpSessionListener这个生命周期监听器接口的常用方法
+(1)sessionCreated(HttpSessionEvent se){}
+(2)sessionDestroyed(HttpSessionEvent se){}
+25.HttpSession什么时候创建呢?
+在Servlet中，session不会主动创建，第一次使用时才创建。JSP默认会创建session。
+26.过滤器的继承树(与Servlet基本一致)
+Filter<<interface>> ——>  GenericFilter ——> HttpFilter ——> MyFilter
+27.会话管理的实现方式
+(1)隐藏域(古董方法,用input表单type的hidden属性)
+(2)使用Cookie
+(3)URL重写
+28.servlet与servletConfig servletContext的对应关系
+一个servlet对应一个servletConfig
+一个web应用中的servlet共享一个servletContext
+29.JSP与Servlet的域对象
+JSP: application       servlet: ServletContext
+Session				  HttpSession
+Request				  request
+Page                  page
+两者是相互对应的
+30.jsp的三种脚本写法
+<%
+Java代码
+%>
+
+<%!
+声明的属性与方法将被提升到成员变量
+%>
+
+<%=”hello” 									相当于直接响应字符串hello
+%>
+31. JSP与Servlet的关系
+Jsp本质上就是servlet
+二 名词解释
+WWW
+JavaSE
+JavaEE
+MVC架构
+依赖注入
+控制反转
+会话管理
+面向切片编程(AOP)
+Web容器
+BS
+CS
+Cookie
+Session
+JsessionID
+Spring
