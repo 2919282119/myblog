@@ -117,7 +117,7 @@ Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals(cookieName)) {
-                    return cookie.getValue();
+                    System.out.println(cookie.getValue())
                 }
             }
         }
@@ -655,13 +655,13 @@ IoC 的核心思想是反转对象的创建和管理权。传统的程序设计�
 
 AOP 的核心思想是通过将横切关注点（cross-cutting concerns）从主业务逻辑中分离出来，以便更好地模块化和复用。横切关注点是那些跨越应用程序多个模块的关注点，例如日志、事务管理、安全等。
 
-主要概念和实现方式：
+#### 核心概念
+- **连接点**(JoinPoint)：原始方法
+- **切入点**(PointCut)：选择要追加功能的方法，切入点可定义多个
+- **通知**(Advice)：共性功能
+  - 通知类：java中方法不能独立存在，要写一个通知类
 
-1. **切面（Aspect）：** 切面是横切关注点的模块化，它封装了横切关注点的行为。例如，一个日志切面可以定义在方法执行前后记录日志的行为。
-2. **连接点（Join Point）：** 连接点是在应用程序执行过程中能够插入切面的点。例如，方法的调用、异常的抛出等。
-3. **通知（Advice）：** 通知是切面在连接点处执行的动作，包括 "before"、"after"、"around" 等。
-4. **切点（Pointcut）：** 切点是一组连接点的集合，用于定义切面的执行位置。
-5. **引入（Introduction）：** 引入允许向现有的类添加新方法或属性。
+- **切面**(Aspect)：通知和切入点的关系(要如何扩展)
 
 AOP 的主要目标是解耦关注点，使代码更易于维护和理解。通过 AOP，我们可以将横切关注点集中管理，提高代码的模块化程度。
 
