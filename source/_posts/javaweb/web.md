@@ -149,9 +149,8 @@ Cookie[] cookies = request.getCookies();
     - lib
     - classes
 
-- **lib：** 外部JAR包
-
 - **META-INF：** 项目元数据
+- **其他**
 
 
 
@@ -196,7 +195,7 @@ response.sendRedirect("B.java")
   - 设置编码方式
 - `getRequestDispatcher("b.jsp").forward(request,response) `
   - 请求转发
-- `ServletContext getServerContext()`
+- `ServletContext getServletContext()`
   - ServletContext是全局共用的对象，有以下几个常用方法
     - `setAttribute(name,value)`
     - `getAttribute(name)`
@@ -482,6 +481,14 @@ public class Aservlet extends HttpServlet{
 ```
 
 - 优先级：web.xml>注解
+#### Servlet继承树
+- Servlet接口
+  - ServletRequest接口
+    - HttpServletRequest接口
+  - ServletResponse接口
+    - HttpServletResponse接口
+  - GenericServlet抽象类实现了Servlet接口
+    - HttpServlet抽象类继承了GenericServlet类
 
 
 
@@ -506,7 +513,7 @@ public class Aservlet extends HttpServlet{
 @WebFilter("/*")
 public class CorsFilter extends HttpFilter{
     public void doFilter(HttpServletRequest req,HttpServletResponse res,FilterChain chain){
-        req.setCharsetEncoding("utf-8");
+        req.setCharacterEncoding("utf-8");
         req.setContentType("text-html;chartset=utf-8");
          // 允许跨域访问的域名，可以使用通配符"*"表示允许任意域名
         response.setHeader("Access-Control-Allow-Origin", "*");
