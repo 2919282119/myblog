@@ -1,5 +1,5 @@
 ---
-title: 宝藏网站
+title: 收藏网站
 cover: https://images.pexels.com/photos/1252907/pexels-photo-1252907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 tag: links
 ---
@@ -31,3 +31,21 @@ tag: links
 26. [DIY表情包](https://www.dbbqb.com/)
 27. [宝塔(部署)](https://www.bt.cn/login.html?ReturnUrl=https://www.bt.cn/admin/servers)
 28. [框框大学](https://www.kkdaxue.com/)
+29. [波浪svg](https://getwaves.io/)
+30. [natapp内网穿透工具](https://natapp.cn/)
+31. [clip-path:polygon多边形工具](https://bennettfeely.com/clippy/)
+32. [You-Icons图标网站](https://cn.youicons.com/logo-collctions)
+33. [猫啃免费字体网站](https://www.maoken.com/)
+34. [openai接口](https://www.openai-hk.com/open/index)
+35. [leancloud评论后台-配合valine](https://console.leancloud.cn/)
+36. [超星网页版](https://i.chaoxing.com/)
+37. [亿信ABI](https://abi.esensoft.com/)
+38. [docker教程飞书云文档](https://b11et3un53m.feishu.cn/wiki/MWQIw4Zvhil0I5ktPHwcoqZdnec)
+39. [js调用摄像头](https://refblogs.com/article/475)
+40. [Antd-vue](https://2x.antdv.com/components/overview-cn/)
+41. [vue官方文档](https://cn.vuejs.org/)
+42. [colorpicker](https://www.materialpalette.com/colors)
+43. [手写字体生成器](http://shouxie.laoxiezi.com/)
+44. [搬砖码农](https://refblogs.com)
+
+
